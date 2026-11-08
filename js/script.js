@@ -34,5 +34,11 @@ fb.forEach(b=>b.addEventListener("click",()=>{
 // ---- Motion (all of it switches off for visitors who prefer reduced motion) ----
 
   // Fade the page out before moving to another page of the site
- 
+ const calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!calm){
+  // Fade content in when it scrolls into view
+  const targets=document.querySelectorAll(".cols > div,.band .wrap,.essay,.steps li,.section .wrap > h2,.section .wrap > p,.form-box");
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+  targets.forEach((t,i)=>{t.classList.add("reveal");io.observe(t)});
+
 }
