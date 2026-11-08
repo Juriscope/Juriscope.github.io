@@ -39,13 +39,5 @@ if(!calm){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
   targets.forEach((t,i)=>{t.classList.add("reveal");io.observe(t)});
   // Fade the page out before moving to another page of the site
-  document.addEventListener("click",e=>{
-    const a=e.target.closest("a");
-    if(!a||a.target||e.metaKey||e.ctrlKey||e.shiftKey)return;
-    const u=new URL(a.href,location.href);
-    if(u.origin!==location.origin||u.pathname===location.pathname)return;
-    e.preventDefault();document.body.classList.add("leaving");
-    setTimeout(()=>location.href=a.href,280);
-  });
-  addEventListener("pageshow",e=>{if(e.persisted)document.body.classList.remove("leaving")});
+ 
 }
