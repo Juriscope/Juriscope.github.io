@@ -106,14 +106,12 @@ a{color:var(--navy)}
 
 @media(prefers-reduced-motion:no-preference){
   /* page enter / leave */
-  main,.site-footer{animation:pageIn .6s ease both}
-  body.leaving main,body.leaving .site-footer{opacity:0;transform:translateY(8px);transition:opacity .28s ease,transform .28s ease}
-  @keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+ 
 
   /* hero: staggered entrance plus slow drifting light */
   .hero{position:relative;overflow:hidden}
   .hero .wrap{position:relative;z-index:1}
-  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
   .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.28;pointer-events:none}
   .hero::before{width:480px;height:480px;background:var(--mist);right:-120px;top:-160px;animation:drift 18s ease-in-out infinite alternate}
   .hero::after{width:380px;height:380px;background:var(--gold);right:20%;bottom:-220px;opacity:.18;animation:drift 22s ease-in-out infinite alternate-reverse}
