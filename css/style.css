@@ -132,3 +132,5 @@ body[data-page="submit.html"] .btn:hover{background:var(--mist);border-color:var
   .cols > .reveal:nth-child(2){transition-delay:.12s}
   .cols > .reveal:nth-child(3){transition-delay:.24s}
 }
+.ideas{border:2px solid var(--mist);background:#fff;padding:24px;margin-bottom:32px;max-width:68ch}
+.idea-q{font:600 1.5rem/1.3 var(--serif);color:var(--navy);min-height:3.9em;margin:0 0 1em}

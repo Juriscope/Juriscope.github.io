@@ -23,7 +23,7 @@ const btn=document.querySelector(".menu-btn"),nav=document.getElementById("nav")
 btn.addEventListener("click",()=>{const o=nav.classList.toggle("open");btn.setAttribute("aria-expanded",o)});
 
 // Topic filter on the research page
-const fb=document.querySelectorAll(".filters button");
+const fb=document.querySelectorAll(".filters:not(#idea-filters) button");
 fb.forEach(b=>b.addEventListener("click",()=>{
   fb.forEach(x=>x.classList.remove("on"));b.classList.add("on");
   let shown=0;
@@ -41,4 +41,25 @@ if(!calm){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
   targets.forEach((t,i)=>{t.classList.add("reveal");io.observe(t)});
 
+}// Topic idea generator
+const ideaBtn=document.getElementById("idea-btn");
+if(ideaBtn){
+  const ideas={
+    law:["Should minors be tried as adults for serious crimes?","Does the First Amendment protect students' speech at school?","Should juries be allowed to see a defendant's criminal record?","Is the death penalty compatible with a fair justice system?","Should AI-generated art be protected by copyright?"],
+    ethics:["Is it ever ethical to lie to protect someone?","Do we have moral duties to future generations?","Should social media companies be responsible for what users post?","Is it fair to judge historical figures by today's standards?","Do animals have rights?"],
+    philosophy:["Do we have free will?","What makes a person the same person over time?","Can a society be just if it is not equal?","Is knowledge possible without certainty?","Does morality depend on culture?"],
+    psychology:["Why do people follow rules even when they disagree with them?","How does social media affect teenagers' identity?","Can eyewitness memory be trusted in court?","What makes people conform to a group?","Does punishment or reward change behavior more?"]
+  };
+  const all=Object.values(ideas).flat();
+  let topic="all",last="";
+  const q=document.getElementById("idea-q");
+  const chips=document.querySelectorAll("#idea-filters button");
+  chips.forEach(b=>b.addEventListener("click",()=>{
+    chips.forEach(x=>x.classList.remove("on"));b.classList.add("on");topic=b.dataset.topic;
+  }));
+  ideaBtn.addEventListener("click",()=>{
+    const pool=(topic==="all"?all:ideas[topic]).filter(i=>i!==last);
+    last=pool[Math.floor(Math.random()*pool.length)];
+    q.textContent=last;
+  });
 }
