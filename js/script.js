@@ -15,7 +15,7 @@ document.getElementById("site-footer").outerHTML=`
 <footer class="site-footer"><div class="wrap">
   <div><strong>Juriscope</strong><p>Student-reviewed research and essays.</p></div>
   <div><p>Email: <a href="mailto:juriscopejournal@gmail.com">juriscopejournal@gmail.com</a></p>
-       <p>Instagram: <a href="#">@yourhandle</a></p></div>
+       <p>Instagram: <a href="https://instagram.com/juriscopelaw">@juriscopelaw</a></p></div>
   <div><p>&copy; 2026 Juriscope. All work belongs to its authors.</p></div>
 </div></footer>`;
 
